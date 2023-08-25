@@ -7,5 +7,6 @@ public class Main {
         Calculator calculator = new Calculator();
         peopleCounter.countOfPeople(scanner);
         calculator.addNewProduct(scanner);
+        calculator.printProductList();
     }
 }
