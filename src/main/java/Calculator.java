@@ -3,15 +3,12 @@ import java.util.Scanner;
 public class Calculator {
     StringBuilder productList = new StringBuilder("Добавленные товары:");
     double productListPrice;
-    String productName;
+    String guess = "";
     double productPrice;
 
     private void readProductName(Scanner scanner, Product product) {
         System.out.println("Введите название товара:");
-        productName = scanner.nextLine();
-        if (!productName.equalsIgnoreCase("завершить")) {
-            product.name = productName;
-        }
+        product.name = scanner.nextLine();
     }
 
     private void readProductPrice(Scanner scanner, Product product) {
@@ -39,17 +36,15 @@ public class Calculator {
     }
 
     void addNewProduct(Scanner scanner) {
-        while (true) {
+        while (!guess.equalsIgnoreCase("завершить")) {
             Product product = new Product();
             readProductName(scanner, product);
-            if (productName.equalsIgnoreCase("завершить")) {
-                break;
-            }
             readProductPrice(scanner, product);
             productList.append("\n").append(product.name);
             calculateTotalPrice(product);
-            System.out.println("Товар " + product.name + " успешно добавлен.\n" +
+            System.out.println("Товар \"" + product.name + "\" успешно добавлен.\n" +
                     "Хотите добавить ещё товар?");
+            guess = scanner.nextLine();
         }
     }
 
