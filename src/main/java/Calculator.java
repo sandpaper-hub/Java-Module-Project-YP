@@ -7,7 +7,7 @@ public class Calculator {
 
     private void readProductName(Scanner scanner, Product product) {
         System.out.println("Введите название товара:");
-        productName = scanner.next();
+        productName = scanner.nextLine();
         if (!productName.equalsIgnoreCase("завершить")) {
             product.name = productName;
         }
@@ -18,6 +18,7 @@ public class Calculator {
         while (true) {
             if (scanner.hasNextDouble()) {
                 product.price = scanner.nextDouble();
+                scanner.nextLine();
                 break;
             } else {
                 System.out.println("Не корректные данные.");
@@ -45,7 +46,9 @@ public class Calculator {
         }
     }
 
-    void printProductList() {
+    void printProductList(PriceFormatter formatter, int people) {
+        String roundedPrice = formatter.roundPrice(productListPrice / people);
         System.out.println(productList.toString());
+        System.out.println("С каждого человека " + roundedPrice + formatter.rubInflection(productListPrice / people));
     }
 }
