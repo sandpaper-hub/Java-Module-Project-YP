@@ -4,6 +4,7 @@ public class Calculator {
     StringBuilder productList = new StringBuilder("Добавленные товары:");
     double productListPrice;
     String productName;
+    double productPrice;
 
     private void readProductName(Scanner scanner, Product product) {
         System.out.println("Введите название товара:");
@@ -17,9 +18,15 @@ public class Calculator {
         System.out.println("Введите стоимость товара:");
         while (true) {
             if (scanner.hasNextDouble()) {
-                product.price = scanner.nextDouble();
-                scanner.nextLine();
-                break;
+                productPrice = scanner.nextDouble();
+                if (!(productPrice <= 0)) {
+                    product.price = productPrice;
+                    scanner.nextLine();
+                    break;
+                } else {
+                    System.out.println("Цена не может быть отрицательной или нулевой, введите снова");
+                }
+
             } else {
                 System.out.println("Не корректные данные.");
                 scanner.next();
