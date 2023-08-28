@@ -11,6 +11,7 @@ public class PeopleCounter {
                 if (count <= 1) {
                     System.out.println("Нет смысла делить счет");
                 } else {
+                    scanner.nextLine();
                     return count;
                 }
             } else {
