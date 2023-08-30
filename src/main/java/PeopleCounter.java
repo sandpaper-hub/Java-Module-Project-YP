@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class PeopleCounter {
 
-    int countOfPeople(Scanner scanner) {
+    int readPeopleCount(Scanner scanner) {
         int count;
         System.out.println("На сколько человек необходимо разделить счёт?");
         while (true) {

@@ -16,7 +16,7 @@ public class Calculator {
         while (true) {
             if (scanner.hasNextDouble()) {
                 productPrice = scanner.nextDouble();
-                if (!(productPrice <= 0)) {
+                if (productPrice > 0) {
                     product.price = productPrice;
                     scanner.nextLine();
                     break;
@@ -48,9 +48,9 @@ public class Calculator {
         }
     }
 
-    void printProductList(PriceFormatter formatter, int people) {
-        String roundedPrice = formatter.roundPrice(productListPrice / people);
+    void printProductList(int people) {
+        String roundedPrice = PriceFormatter.roundPrice(productListPrice / people);
         System.out.println(productList.toString());
-        System.out.println("С каждого человека " + roundedPrice + formatter.rubInflection(productListPrice / people));
+        System.out.println("С каждого человека " + roundedPrice+ " " + PriceFormatter.rubInflection(productListPrice / people));
     }
 }
