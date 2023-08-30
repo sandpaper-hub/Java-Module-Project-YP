@@ -5,7 +5,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         PeopleCounter peopleCounter = new PeopleCounter();
         Calculator calculator = new Calculator();
-        int people = peopleCounter.countOfPeople(scanner);
+        int people = peopleCounter.readPeopleCount(scanner);
         calculator.addNewProduct(scanner);
         calculator.printProductList(people);
     }
