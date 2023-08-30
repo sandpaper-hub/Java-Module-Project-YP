@@ -16,7 +16,7 @@ public class Calculator {
         while (true) {
             if (scanner.hasNextDouble()) {
                 productPrice = scanner.nextDouble();
-                if (!(productPrice <= 0)) {
+                if (productPrice > 0) {
                     product.price = productPrice;
                     scanner.nextLine();
                     break;
